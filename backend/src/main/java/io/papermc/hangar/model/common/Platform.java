@@ -16,7 +16,7 @@ public enum Platform {
     // NOTE: The order here should always be the order they are displayed whenever there is a list somewhere on the frontend
     FORGE("Forge", Category.MOD, "https://files.minecraftforge.net", true),
     FABRIC("Fabric", Category.MOD, "https://fabricmc.net", true),
-    NEOFORGE("NeoForge", Category.MOD "https://neoforged.net", true),
+    NEOFORGE("NeoForge", Category.MOD, "https://neoforged.net", true),
     MODLOADER("Risugami's ModLoader", Category.MOD, "https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1272333-risugamis-mods-updated", true),
     QUILT("Quilt", Category.MOD, "https://quiltmc.org", true),
     LITELOADER("LiteLoader", Category.MOD, "https://www.liteloader.com", true),
