@@ -14,9 +14,16 @@ import org.jdbi.v3.core.enums.EnumByOrdinal;
 public enum Platform {
 
     // NOTE: The order here should always be the order they are displayed whenever there is a list somewhere on the frontend
-    PAPER("Paper", Category.SERVER, "https://papermc.io/downloads", true),
-    WATERFALL("Waterfall", Category.PROXY, "https://papermc.io/downloads#Waterfall", true),
-    VELOCITY("Velocity", Category.PROXY, "https://www.velocitypowered.com/downloads", true);
+    FORGE("Forge", Category.MOD, "https://files.minecraftforge.net", true),
+    FABRIC("Fabric", Category.MOD, "https://fabricmc.net", true),
+    NEOFORGE("NeoForge", Category.MOD "https://neoforged.net", true),
+    MODLOADER("Risugami's ModLoader", Category.MOD, "https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1272333-risugamis-mods-updated", true)
+    QUILT("Quilt", Category.MOD, "https://quiltmc.org", true),
+    LITELOADER("LiteLoader", Category.MOD, "https://www.liteloader.com", true),
+    RIFT("Rift", Category.MOD, "https://www.curseforge.com/minecraft/mc-mods/rift", true);
+    //PAPER("Paper", Category.SERVER, "https://papermc.io/downloads", true),
+    //WATERFALL("Waterfall", Category.PROXY, "https://papermc.io/downloads#Waterfall", true),
+    //VELOCITY("Velocity", Category.PROXY, "https://www.velocitypowered.com/downloads", true);
 
     private static final Platform[] VALUES = values();
 
@@ -58,8 +65,7 @@ public enum Platform {
     }
 
     public enum Category {
-        SERVER("Server Plugins", "Server"),
-        PROXY("Proxy Plugins", "Proxy");
+        MOD("Minecraft Mods", "Mod"),
 
         private final String name;
         private final String tagName;

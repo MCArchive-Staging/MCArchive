@@ -113,8 +113,7 @@
     "darkModeOff": "Turn off Dark Mode",
     "new": {
       "title": "Create",
-      "project": "New Project",
-      "organization": "New Organization"
+      "project": "New Project"
     },
     "tools": {
       "title": "Tools",
@@ -629,23 +628,6 @@
       "editButton": "Edit",
       "deleteButton": "Delete",
       "add": "Add Channel"
-    }
-  },
-  "organization": {
-    "new": {
-      "title": "Create a new Organization",
-      "text": "Organizations allow you to group users and provide closer collaboration between them within your projects on Hangar.",
-      "name": "Organization Name",
-      "error": {
-        "duplicateName": "An organization/user with that name already exists",
-        "invalidName": "Invalid organization name",
-        "tooManyOrgs": "You can only create a maximum of {0} organizations",
-        "notEnabled": "Organizations are not enabled!",
-        "jsonError": "Error parsing the JSON response from HangarAuth",
-        "hangarAuthValidationError": "Validation Error: {0}",
-        "unknownError": "Unknown error while creating organization",
-        "noSpaces": "The organization name cannot contain any spaces"
-      }
     },
     "settings": {
       "changeAvatar": "Change avatar",
