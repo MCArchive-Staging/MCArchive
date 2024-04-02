@@ -8587,9 +8587,13 @@
         "description": "Server platform",
         "example": "PAPER",
         "enum": [
-          "PAPER",
-          "WATERFALL",
-          "VELOCITY"
+          "FORGE",
+          "FABRIC",
+          "NEOFORGE",
+          "MODLOADER",
+          "QUILT",
+          "LITELOADER",
+          "RIFT"
         ]
       },
       "io.papermc.hangar.model.internal.versions.MultipartFileOrUrl": {

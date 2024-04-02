@@ -161,7 +161,7 @@ public class FakeDataService extends HangarComponent {
             "dark",
             true,
             new JSONB(Map.of()));
-        this.globalRoleService.addRole(new GlobalRoleTable(admin.getId(), GlobalRole.MCA_ADMIN));
+        this.globalRoleService.addRole(new GlobalRoleTable(admin.getId(), GlobalRole.HANGAR_ADMIN));
 
         final UserTable user = this.userDAO.create(UUID.randomUUID(), "e2e_user",
             "e2e_user@hangar.papermc.io",

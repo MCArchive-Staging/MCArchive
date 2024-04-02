@@ -139,9 +139,13 @@ export interface PluginDependency {
  * @example "PAPER"
  */
 export enum Platform {
-  PAPER = "PAPER",
-  WATERFALL = "WATERFALL",
-  VELOCITY = "VELOCITY",
+  FORGE = "PAPER",
+  FABRIC = "WATERFALL",
+  NEOFORGE = "VELOCITY",
+  QUILT = "QUILT",
+  RIFT = "RIFT",
+  MODLOADER = "MODLOADER",
+  LITELOADER = "LITELOADER",
 }
 
 /** List of different jars/external links that are part of the version */

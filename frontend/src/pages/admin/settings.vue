@@ -17,9 +17,15 @@ const loading = ref<boolean>(false);
 useHead(useSeo(i18n.t("platformVersions.title"), null, route, null));
 
 const fullVersions = ref<Record<Platform, string[]>>({
-  PAPER: [],
-  WATERFALL: [],
-  VELOCITY: [],
+  FORGE: [],
+  FABRIC: [],
+  FORGE: [],
+  FABRIC: [],
+  NEOFORGE: [],
+  MODLOADER: [],
+  QUILT: [],
+  LITELOADER: [],
+  RIFT: [],
 });
 resetPlatformVersions();
 
