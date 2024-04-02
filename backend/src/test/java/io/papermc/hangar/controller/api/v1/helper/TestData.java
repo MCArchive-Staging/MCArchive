@@ -82,7 +82,7 @@ public class TestData {
         USER_MEMBER = this.authService.registerUser(new SignupForm("TestMember", "testmember@papermc.io", "W45nNUefrsB8ucQeiKDdbEQijH5KP", true));
         USER_ADMIN = this.authService.registerUser(new SignupForm("TestAdmin", "testadmin@papermc.io", "W45nNUefrsB8ucQeiKDdbEQijH5KP", true));
 
-        this.globalRoleService.addRole(new GlobalRoleTable(USER_ADMIN.getUserId(), GlobalRole.HANGAR_ADMIN));
+        this.globalRoleService.addRole(new GlobalRoleTable(USER_ADMIN.getUserId(), GlobalRole.MCA_ADMIN));
 
         HangarApplication.TEST_PRINCIPAL = Optional.of(new HangarPrincipal(USER_ADMIN.getUserId(), USER_ADMIN.getName(), USER_ADMIN.getEmail(), false, Permission.All, null, 2, true));
 

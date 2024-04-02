@@ -109,7 +109,6 @@ export interface HangarProjectInvite {
 
 export enum InviteType {
   Project = "project",
-  Organization = "organization",
 }
 
 export enum InviteStatus {
@@ -987,7 +986,6 @@ export interface UserPermissions {
 export enum PermissionType {
   Global = "global",
   Project = "project",
-  Organization = "organization",
 }
 
 export interface PermissionCheck {

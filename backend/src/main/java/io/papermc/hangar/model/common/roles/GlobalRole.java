@@ -12,17 +12,11 @@ import java.util.UUID;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum GlobalRole implements Role<GlobalRoleTable> {
 
-    HANGAR_ADMIN("Hangar_Admin", 1, Permission.All, "Hangar Admin", Color.RED, 10),
-    HANGAR_DEV("Hangar_Dev", 2, Permission.IsStaff.add(Permission.SeeHidden).add(Permission.ViewStats).add(Permission.ViewLogs).add(Permission.ViewHealth), "Hangar Developer", Color.ORANGE, 30),
-    HANGAR_MOD("Hangar_Mod", 3, Permission.IsStaff.add(Permission.Reviewer).add(Permission.DeleteVersion).add(Permission.DeleteProject).add(Permission.RestoreVersion).add(Permission.RestoreProject), "Hangar Moderator", Color.AQUA, 40),
-
-    PAPERMC_CORE("PaperMC_Core", 4, Permission.All, "PaperMC Core", Color.AMBER, 0),
-    PAPERMC_STAFF("PaperMC_Staff", 5, Permission.IsStaff.add(Permission.ModNotesAndFlags).add(Permission.SeeHidden), "PaperMC Staff", Color.AMBER, 50),
-    PAPERMC_CM("PaperMC_CM", 6, Permission.All.remove(Permission.ManualValueChanges), "Community Manager", Color.AMBER, 20),
+    MCA_ADMIN("MCArchive Administrator", 1, Permission.All, "MCArchive Administrator", Color.RED, 10),
+    MCA_DEV("MCArchive Developer", 2, Permission.IsStaff.add(Permission.SeeHidden).add(Permission.ViewStats).add(Permission.ViewLogs).add(Permission.ViewHealth), "MCArchive Developer", Color.ORANGE, 30),
+    MCA_MOD("MCArchive Moderator", 3, Permission.IsStaff.add(Permission.Reviewer).add(Permission.DeleteVersion).add(Permission.DeleteProject).add(Permission.RestoreVersion).add(Permission.RestoreProject), "MCArchive Moderator", Color.AQUA, 40),
 
     DUMMY("Dummy", 42, Permission.ViewPublicInfo, "Dummy", Color.CHARTREUSE, 42),
-
-    ORGANIZATION("Organization", 100, OrganizationRole.ORGANIZATION_OWNER.getPermissions(), "Organization", Color.PURPLE);
 
     private final String value;
     private final long roleId;

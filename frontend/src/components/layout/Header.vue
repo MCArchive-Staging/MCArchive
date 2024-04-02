@@ -50,7 +50,6 @@ const navBarMenuLinksHangar: NavBarLinks = [
   { link: "index", label: "Home", icon: IconMdiHome },
   { link: "guidelines", label: "Resource Guidelines", icon: IconMdiFileDocumentAlert },
   { link: "new", label: "Create Project", icon: IconMdiFolderPlusOutline },
-  { link: "neworganization", label: "Create Organization", icon: IconMdiFolderPlusOutline },
   { link: "authors", label: "Authors", icon: IconMdiAccountGroup },
   { link: "staff", label: "Team", icon: IconMdiAccountGroup },
 ];
