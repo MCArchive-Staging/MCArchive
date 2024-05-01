@@ -7,7 +7,7 @@ import { type HangarOrganization, NamedPermission, type PaginatedResultProject, 
 
 const props = defineProps<{
   user: User;
-  organization: HangarOrganization;
+  organization?: HangarOrganization;
 }>();
 const i18n = useI18n();
 
@@ -60,7 +60,7 @@ const buttons = computed<UserButton[]>(() => {
   const list = [] as UserButton[];
   if (!props.user.isOrganization) {
     if (hasPerms(NamedPermission.EditAllUserSettings)) {
-      list.push({ icon: IconMdiKey, attr: { to: "/" + props.user.name + "/settings/api-keys" }, name: "apiKeys" });
+      list.push({ icon: IconMdiKey, attr: { to: "/auth/settings/api-keys" }, name: "apiKeys" });
     }
     if (hasPerms(NamedPermission.ModNotesAndFlags) || hasPerms(NamedPermission.Reviewer)) {
       list.push({ icon: IconMdiCalendar, attr: { to: `/admin/activities/${props.user.name}` }, name: "activity" });
@@ -210,14 +210,7 @@ useHead(useSeo(props.user.name, description, route, props.user.avatarUrl));
             </span>
           </Card>
         </template>
-        <MemberList
-          v-else-if="organization"
-          :members="organization.members"
-          :roles="orgRoles"
-          organization
-          :author="user.name"
-          :owner="organization.owner.userId"
-        />
+        <MemberList v-else-if="organization" :members="organization.members" :roles="orgRoles" organization :author="user.name" />
       </div>
     </div>
   </div>

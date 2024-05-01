@@ -349,7 +349,7 @@ useHead(useSeo(i18n.t("project.settings.title") + " | " + props.project.name, pr
                 ref="newNameField"
                 v-model.trim="newName"
                 :label="i18n.t('project.settings.newName')"
-                :rules="[validProjectName()(() => project.owner.userId)]"
+                :rules="[validProjectName()()]"
               />
               <Button :disabled="!newName || newNameField?.validation?.$invalid" :loading="loading.rename" class="ml-2" @click="rename">
                 <IconMdiRenameBox class="mr-2" />
@@ -407,12 +407,6 @@ useHead(useSeo(i18n.t("project.settings.title") + " | " + props.project.name, pr
         </template>-->
       </Tabs>
     </Card>
-    <MemberList
-      :members="project.members"
-      :author="project.owner.name"
-      :slug="project.name"
-      :owner="project.owner.userId"
-      class="basis-full md:basis-3/12 h-max"
-    />
+    <MemberList :members="project.members" :author="project.namespace.owner" :slug="project.name" class="basis-full md:basis-3/12 h-max" />
   </div>
 </template>

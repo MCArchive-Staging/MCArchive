@@ -25,7 +25,7 @@ const filters = ref({
 
 const activeSorter = ref<string>((route.query.sort as string) || "-stars");
 const page = ref(route.query.page ? Number(route.query.page) : 0);
-const query = ref<string>((route.query.q as string) || "");
+const query = ref<string>((route.query.query as string) || "");
 const projects = ref<PaginatedResultProject | null>();
 
 const requestParams = computed(() => {
@@ -94,7 +94,7 @@ function versions(platform: Platform): PlatformVersion[] {
     return [];
   }
 
-  return platformData.possibleVersions;
+  return platformData.platformVersions;
 }
 
 function updatePlatform(platform: any) {
@@ -106,31 +106,27 @@ function updatePlatform(platform: any) {
   });
 }
 
-const meta = useSeo("Home", null, route, null);
 const config = useConfig();
-const script = {
-  type: "application/ld+json",
-  children: JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: config.publicHost,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: config.publicHost + "/?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-  }),
-};
-if (isRef(meta.script)) {
-  meta.script.value.push(script);
-} else {
-  meta.script = (meta.script || []) as [];
-  meta.script.push(script);
-}
-
 const pageChangeScrollAnchor = ref<Element>();
 
-useHead(meta);
+useHead(
+  useSeo("Home", null, route, null, [
+    {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        url: config.publicHost,
+        potentialAction: {
+          "@type": "SearchAction",
+          target: config.publicHost + "/?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      }),
+      key: "website",
+    },
+  ])
+);
 </script>
 
 <template>
@@ -150,7 +146,10 @@ useHead(meta);
         />
         <div class="md:hidden flex">
           <Menu>
-            <MenuButton class="bg-gradient-to-r from-primary-500 to-primary-400 rounded-r-md text-left font-semibold flex items-center gap-2 text-white p-2">
+            <MenuButton
+              id="sort-button"
+              class="bg-gradient-to-r from-primary-500 to-primary-400 rounded-r-md text-left font-semibold flex items-center gap-2 text-white p-2"
+            >
               <span class="whitespace-nowrap">{{ i18n.t("hangar.projectSearch.sortBy") }}</span>
               <icon-mdi-sort-variant class="text-xl pointer-events-none" />
             </MenuButton>
