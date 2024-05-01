@@ -56,7 +56,7 @@ public class PopulationService {
         }
     }
 
-    private final List<String> paperVersions = List.of("1.8",
+    private final List<String> minecraftVersions = List.of("1.8",
         "1.9", "1.9.1", "1.9.2", "1.9.3", "1.9.4",
         "1.10", "1.10.1", "1.10.2",
         "1.11", "1.11.1", "1.11.2",
@@ -69,16 +69,18 @@ public class PopulationService {
         "1.18", "1.18.1", "1.18.2",
         "1.19", "1.19.1", "1.19.2", "1.19.3", "1.19.4"
     );
-    private final List<String> waterfallVersions = List.of("1.11", "1.12", "1.13", "1.14", "1.15", "1.16", "1.17", "1.18", "1.19");
-    private final List<String> velocityVersions = List.of("1.0", "1.1", "3.0", "3.1", "3.2");
 
     private void populatePlatformVersions() {
         final Map<Platform, List<String>> platformVersions = this.platformVersionDAO.getVersions();
         if (platformVersions.isEmpty()) {
             log.info("Populating 'platform_versions' table with initial values");
-            this.platformVersionDAO.insertAll(this.paperVersions.stream().map(v -> new PlatformVersionTable(Platform.PAPER, v)).collect(Collectors.toList()));
-            this.platformVersionDAO.insertAll(this.velocityVersions.stream().map(v -> new PlatformVersionTable(Platform.VELOCITY, v)).collect(Collectors.toList()));
-            this.platformVersionDAO.insertAll(this.waterfallVersions.stream().map(v -> new PlatformVersionTable(Platform.WATERFALL, v)).collect(Collectors.toList()));
+            this.platformVersionDAO.insertAll(this.minecraftVersions.stream().map(v -> new PlatformVersionTable(Platform.FORGE, v)).collect(Collectors.toList()));
+            this.platformVersionDAO.insertAll(this.minecraftVersions.stream().map(v -> new PlatformVersionTable(Platform.FABRIC, v)).collect(Collectors.toList()));
+            this.platformVersionDAO.insertAll(this.minecraftVersions.stream().map(v -> new PlatformVersionTable(Platform.NEOFORGE, v)).collect(Collectors.toList()));
+            this.platformVersionDAO.insertAll(this.minecraftVersions.stream().map(v -> new PlatformVersionTable(Platform.MODLOADER, v)).collect(Collectors.toList()));
+            this.platformVersionDAO.insertAll(this.minecraftVersions.stream().map(v -> new PlatformVersionTable(Platform.QUILT, v)).collect(Collectors.toList()));
+            this.platformVersionDAO.insertAll(this.minecraftVersions.stream().map(v -> new PlatformVersionTable(Platform.LITELOADER, v)).collect(Collectors.toList()));
+            this.platformVersionDAO.insertAll(this.minecraftVersions.stream().map(v -> new PlatformVersionTable(Platform.RIFT, v)).collect(Collectors.toList()));
         } else {
             log.info("The 'platform_versions' table is already populated");
         }
