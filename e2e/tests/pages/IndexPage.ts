@@ -20,19 +20,15 @@ Scenario("Test Project List", async ({ I, util, IndexPage }) => {
     I.click(IndexPage.mostDownloadsButton);
     I.waitInUrl("sort=-downloads");
     I.waitToHide("//*[contains(text(),'There are no projects.')]");
-
-    await util.browserStackStatus(true, "Test passed");
 });
 
 Scenario("Test Project List Query", async ({ I, util, IndexPage }) => {
-    util.openHangarPage("/?page=1&query=Test&sort=-downloads&category=admin_tools");
+    util.openHangarPage("/?page=1&query=A&sort=-downloads&category=admin_tools");
 
     // check that query works
-    // I.seeInField(IndexPage.searchField, "Test"); // TODO fix me
+    I.seeInField(IndexPage.searchField, "A");
     I.seeElement(locate("button").withAttr({ "aria-label": "Page 2", disabled: "" }));
     I.seeElement(locate("button.bg-gradient-to-r").withText("Most Downloads"));
     // TODO test minecraft version (maybe selecting a sub version should open the tree too?)
     I.seeElement(locate("input").withAttr({ type: "checkbox", value: "admin_tools", checked: "" }));
-
-    await util.browserStackStatus(true, "Test passed");
 });
