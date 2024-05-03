@@ -19,8 +19,6 @@ useHead(useSeo(i18n.t("platformVersions.title"), null, route, null));
 const fullVersions = ref<Record<Platform, string[]>>({
   FORGE: [],
   FABRIC: [],
-  FORGE: [],
-  FABRIC: [],
   NEOFORGE: [],
   MODLOADER: [],
   QUILT: [],
