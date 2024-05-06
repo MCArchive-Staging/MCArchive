@@ -232,7 +232,7 @@ hangar:
     secret-key: "${HANGAR_PASS}"
     bucket: "mcarchivenext"
     object-storage-endpoint: "s3.us-west-002.backblazeb2.com"
-    cdn-endpoint: "s3.us-west-002.backblazeb2.com"
+    cdn-endpoint: "http://127.0.0.1:9000"
     cdn-include-bucket: true
 
   cors:
