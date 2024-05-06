@@ -183,12 +183,13 @@ hangar:
       - "crowdin.com"
       - "kyori.net"
       - "modrinth.com"
+      - "forgecdn.net"
       - "i.imgur.com"
       - "imgur.com"
       - "giphy.com"
       - "media.giphy.com"
       - "bstats.org"
-    o-auth-enabled: true
+    o-auth-enabled: false
     o-auth-providers:
       - name: "github"
         mode: "github"
@@ -226,12 +227,12 @@ hangar:
     max-concurrent-jobs: 32
 
   storage:
-    # type: "object"
-    access-key: "hangar_root"
-    secret-key: "hangar_pass"
-    bucket: "hangar"
-    object-storage-endpoint: "http://127.0.0.1:9000"
-    cdn-endpoint: "http://127.0.0.1:9000"
+    type: "object"
+    access-key: "${HANGAR_ACCESS}"
+    secret-key: "${HANGAR_PASS}"
+    bucket: "mcarchivenext"
+    object-storage-endpoint: "s3.us-west-002.backblazeb2.com"
+    cdn-endpoint: "s3.us-west-002.backblazeb2.com"
     cdn-include-bucket: true
 
   cors:
